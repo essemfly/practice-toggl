@@ -5,7 +5,7 @@ angular.module('toggl')
   .controller('MainCtrl', ['$scope','$timeout', function ($scope, $timeout) {
     var tmPromise;
 
-    $scope.buttonText = "Start";
+    $scope.buttonText = 'Start';
 
     $scope.toggleTimer = function () {
       if($scope.buttonText ==='Start'){
@@ -20,12 +20,12 @@ angular.module('toggl')
 
     function checkTime(i) {
       i = (i < 1) ? 0 : i;
-      if (i < 10) { i = "0" + i; }  // add zero in front of numbers < 10
+      if (i < 10) { i = '0' + i; }  // add zero in front of numbers < 10
       return i;
     }
 
     $scope.runClock = function (){
-      $scope.buttonText = "ING";
+      $scope.buttonText = 'ING';
       var h, m, s, ms, today = new Date();
       $scope.timeEnd = today.getTime();
       ms = Math.floor(($scope.timeEnd - $scope.timeStart) / 1000);
@@ -35,7 +35,7 @@ angular.module('toggl')
       ms = Math.floor(ms % 60);
       s = checkTime(Math.floor(ms));
       // normalize time string
-      $scope.timer = h + ":" + m + ":" + s;
+      $scope.timer = h + ':' + m + ':' + s;
 
       tmPromise = $timeout(function () {
         $scope.runClock();
@@ -43,10 +43,10 @@ angular.module('toggl')
     };
 
     $scope.stopClock = function(){
-      $scope.buttonText = "Start";
+      $scope.buttonText = 'Start';
       $timeout.cancel(tmPromise);
       $scope.addItem();
-    }
+    };
 
 
     $scope.addItem = function(){
