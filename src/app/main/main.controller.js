@@ -4,6 +4,7 @@
 angular.module('toggl')
   .controller('MainCtrl', ['$scope','$timeout', function ($scope, $timeout) {
     var tmPromise;
+    $scope.timer = '00:00:00';
 
     $scope.buttonText = 'Start';
 
