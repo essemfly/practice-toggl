@@ -23,18 +23,24 @@
         </span>
       </div>
     </div>
-    <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+    <p><a class="btn btn-lg btn-success" ng-href="#"> Splended!! </a></p>
+  </div>
+
+  <div>
+    <div> {{timer}}</div>
+    <button ng-click="toggleTimer()"> {{mode}}</button>
   </div>
 
   <div class="row">
-    <div class="col-sm-12 col-md-12" ng-repeat="awesomeThing in awesomeThings">
+    <div class="col-sm-12 col-md-12" ng-repeat="task in tasks">
       <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
+        <img class="pull-right" ng-src="assets/images/{{task.logo}}" alt="{{task.title}}">
         <div class="caption">
-          <p>{{awesomeThing.datesubmit | date:'yyyy-MM-dd HH:mm:ss'}}</p>
-          <h3>{{awesomeThing.title}}</h3>
-          <p>{{awesomeThing.description}}</p>
-          <p>{{awesomeThing.starttime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+          <p>{{task.datesubmit | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+          <h3>{{task.title}}</h3>
+          <p>{{task.description}}</p>
+          <p>{{task.starttime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+          <p>{{task.timespend }}</p>
         </div>
       </div>
     </div>
