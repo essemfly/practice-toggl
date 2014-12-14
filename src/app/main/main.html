@@ -27,14 +27,14 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-12 col-md-12" ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
+    <div class="col-sm-12 col-md-12" ng-repeat="awesomeThing in awesomeThings">
       <div class="thumbnail">
         <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
         <div class="caption">
-          <p>{{awesomeThing.datesubmit}}</p>
+          <p>{{awesomeThing.datesubmit | date:'yyyy-MM-dd HH:mm:ss'}}</p>
           <h3>{{awesomeThing.title}}</h3>
           <p>{{awesomeThing.description}}</p>
-          <p>{{awesomeThing.timespend}}</p>
+          <p>{{awesomeThing.starttime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
         </div>
       </div>
     </div>

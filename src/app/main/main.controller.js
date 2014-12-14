@@ -2,10 +2,13 @@
 
 angular.module('toggl')
   .controller('MainCtrl', function ($scope) {
-    $scope.date =   {
-      Dt: Date.now()
-    };
-    $scope.date = $filter('date')($scope.date, "dd/MM/yyyy");
+
+    $scope.Task = function (start, finish, title, description){
+      this.start = start;
+      this.finish = finish;
+      this.title = title;
+      this.description = description;
+    }
 
 
     $scope.buttonstate = 0;
@@ -13,6 +16,7 @@ angular.module('toggl')
 
     $scope.buttonChange = function(buttonstate){
       if ($scope.buttonstate === 0) {
+        $scope.startTime = Date.now();
         $scope.buttonText = "ING";
         $scope.buttonstate += 1;
       } else {
@@ -22,40 +26,33 @@ angular.module('toggl')
       }
     }
 
-
-    $scope.addItem = function (buttonText, buttonstate){
-
+    $scope.addItem = function (){
         $scope.awesomeThings.push({
           'title': $scope.itemtitle,
           'description': $scope.itemcontent,
-          'datesubmit': '',
+          'starttime': $scope.startTime,
+          'datesubmit': Date.now(),
           'logo': 'logo',
           'timespend':'timespend'
         });
     };
 
-
-
     $scope.awesomeThings = [
       {
-        'datesubmit': '2014-12-14',
         'title': 'Angular UI Bootstrap',
         'description': 'Bootstrap components written in pure AngularJS by the AngularUI Team.',
+        'starttime': '2014-12-14',
+        'datesubmit': '2014-12-14',
         'logo': 'ui-bootstrap.png',
         'timespend': ''
       },
       {
+        'title': 'Angular UI Bootstrap',
+        'description': 'Bootstrap components written in pure AngularJS by the AngularUI Team.',
+        'starttime': '2014-12-14',
         'datesubmit': '2014-12-14',
-        'title': 'Sass (Node)',
-        'description': 'Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass.',
-        'logo': 'node-sass.png',
+        'logo': 'ui-bootstrap.png',
         'timespend': ''
       }
     ];
-
-
-
-    angular.forEach($scope.awesomeThings, function(awesomeThing) {
-      awesomeThing.rank = Math.random();
-    });
   });
