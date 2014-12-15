@@ -14,13 +14,13 @@ toggl.config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
-    .state('state1', {
+    .state('home', {
       url: '/',
       templateUrl: 'app/main/main.html',
       controller: 'MainCtrl'
     })
-    .state('state2', {
-      url: '/state2',
+    .state('stat', {
+      url: '/stat',
       templateUrl: 'app/main/b.html',
       controller: 'bCtrl'
     });
