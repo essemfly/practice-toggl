@@ -1,6 +1,5 @@
 'use strict';
 
-
 angular.module('toggl')
   .controller('MainCtrl', ['$scope','$timeout', function ($scope, $timeout) {
     var tmPromise;

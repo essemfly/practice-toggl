@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('toggl', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'ui.bootstrap'])
+angular.module('toggl', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
