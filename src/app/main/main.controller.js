@@ -18,7 +18,6 @@ angular.module('toggl')
       }
     };
 
-
     function checkTime(i) {
       i = (i < 1) ? 0 : i;
       if (i < 10) { i = '0' + i; }  // add zero in front of numbers < 10

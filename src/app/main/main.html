@@ -4,18 +4,19 @@
 
   <div class="jumbotron text-center">
     <h1>Seokmin's Toggl</h1>
+    <hr>
     <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Track your time!
+      <img src="assets/images/effort.JPG" alt=""><br>
     </p>
+    <hr>
     <div class="panel row" id="contents">
       <div class="col-lg-3 input-group-lg">
         <p> Title</p>
-        <input type="text" name="title" class="form-control" ng-model="itemtitle"/>
+        <input type="text" name="title" class="form-control" ng-model="itemtitle" ng-disabled="checked"/>
       </div>
       <div class="col-lg-6 input-group-lg">
         <p> Content </p>
-        <input type="text" name="content" class="form-control" ng-model="itemcontent"/>
+        <input type="text" name="content" class="form-control" ng-model="itemcontent" ng-disabled="checked"/>
       </div>
       <div class="col-lg-3 input-group-lg">
         <p> Time passed</p>
@@ -24,7 +25,7 @@
     </div>
     <div>
       <span class="input-group-btn">
-          <button ng-click="toggleTimer()" class="btn btn-lg btn-success" name="change_button"> {{buttonText}}</button>
+          <button ng-click="toggleTimer()" ng-model="checked" class="btn btn-lg btn-success" name="change_button"> {{buttonText}}</button>
       </span>
     </div>
   </div>
