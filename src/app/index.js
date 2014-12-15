@@ -1,7 +1,9 @@
 'use strict';
 
-angular.module('toggl', ['ngRoute'])
-  .config(function ($routeProvider) {
+var toggl = angular.module('toggl', ['ngRoute','LocalStorageModule']);
+
+
+toggl.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'app/main/main.html',
@@ -10,5 +12,12 @@ angular.module('toggl', ['ngRoute'])
       .otherwise({
         redirectTo: '/'
       });
-  })
-;
+  });
+
+
+toggl.config(function(localStorageServiceProvider) {
+  localStorageServiceProvider
+    .setPrefix('toggl')
+    .setStorageType('sessionStorage')
+    .setNotify(true,true);
+});
