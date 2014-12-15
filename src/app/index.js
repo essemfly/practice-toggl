@@ -1,6 +1,6 @@
 'use strict';
 
-var toggl = angular.module('toggl', ['ngRoute','LocalStorageModule']);
+var toggl = angular.module('toggl', ['ngRoute','LocalStorageModule','ui.router']);
 
 
 toggl.config(function ($routeProvider) {
