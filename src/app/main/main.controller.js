@@ -56,7 +56,7 @@ angular.module('toggl')
           'description': $scope.itemcontent,
           'starttime': $scope.timeStart,
           'finishtime': $scope.timeEnd,
-          'timespend': ($scope.timeEnd -$scope.timeStart)/1000,
+          'timespend': ($scope.timeEnd -$scope.timeStart),
           'logo': 'logo'
         });
     };
