@@ -5,9 +5,7 @@ var toggl = angular.module('toggl', ['LocalStorageModule','ui.router']);
 
 toggl.config(['localStorageServiceProvider', function(localStorageServiceProvider) {
   localStorageServiceProvider
-    .setPrefix('togglPrefix')
-    //.setStorageCookie()
-    .setStorageType('sessionStorage')
+    .setPrefix('toggl')
     .setNotify(true,true);
 }]);
 
@@ -22,7 +20,7 @@ toggl.config(function($stateProvider, $urlRouterProvider){
     })
     .state('stat', {
       url: '/stat',
-      templateUrl: 'app/main/b.html',
-      controller: 'bCtrl'
+      templateUrl: 'app/main/stat.html',
+      controller: 'statCtrl'
     });
 });

@@ -1,50 +1,64 @@
 'use strict';
 
-
 angular.module('toggl')
   .controller('MainCtrl', ['$scope','$timeout', 'localStorageService', function ($scope, $timeout, localStorageService) {
+    // Local Storage tasks Load
+    $scope.tasks = [];
+    $scope.block = false;
+    var fillInTasks = function(){
+      var lsLength = localStorageService.length();
+      for (var j=0;j<lsLength;j++){
+        $scope.tasks.push(localStorageService.get(j));
+      }
+    };
+    var cleanTasks = function(){
+      return localStorageService.clearAll();
+    };
+
+    fillInTasks();
+    // cleanTasks();
 
 
-    $scope.$watch('localStorageDemo', function(value){
-      localStorageService.add('localStorageDemo',value);
-      $scope.localStorageDemoValue = localStorageService.get('localStorageDemo');
-    });
-
-    $scope.storageType = 'Local storage';
-
-    if (localStorageService.getStorageType().indexOf('session') >=0) {
-      $scope.storageType = 'Session storage';
-    }
-    if (!localStorageService.isSupported){
-      $scope.storageType = 'Cookie';
-    }
-
+    // Initialize things;
     var tmPromise;
     $scope.timer = '00:00:00';
     $scope.buttonStyle = 'btn-success';
     $scope.buttonText = 'Start';
 
+    // Toggl Button
     $scope.toggleTimer = function () {
       if($scope.buttonText ==='Start'){
         var today= new Date();
         $scope.timeStart = today.getTime();
-        $scope.runClock();
-        $scope.buttonStyle = 'btn-danger';
+        runClock();
       } else {
-        $scope.stopClock();
-        $scope.buttonStyle = 'btn-success ';
+        stopClock();
       }
     };
 
+    // insert 0
     function checkTime(i) {
       i = (i < 1) ? 0 : i;
       if (i < 10) { i = '0' + i; }  // add zero in front of numbers < 10
       return i;
     }
 
-    $scope.runClock = function (){
-      $scope.buttonText = 'ING';
+    var addItem = function(){
+      $scope.tasks.push({
+        'title': $scope.itemtitle,
+        'description': $scope.itemcontent,
+        'starttime': $scope.timeStart,
+        'finishtime': $scope.timeEnd,
+        'timespend': $scope.timer,
+        'logo': 'logo'
+      });
+    };
+
+    var runClock = function (){
       var h, m, s, ms, today = new Date();
+      $scope.buttonStyle = 'btn-danger';
+      $scope.block = true;
+      $scope.buttonText = 'ING';
       $scope.timeEnd = today.getTime();
       ms = Math.floor(($scope.timeEnd - $scope.timeStart) / 1000);
       h =  checkTime(Math.floor(ms / 3600));
@@ -56,36 +70,16 @@ angular.module('toggl')
       $scope.timer = h + ':' + m + ':' + s;
 
       tmPromise = $timeout(function () {
-        $scope.runClock();
+        runClock();
       }, 500);
     };
 
-    $scope.stopClock = function(){
+    var stopClock = function(){
       $scope.buttonText = 'Start';
+      $scope.buttonStyle = 'btn-success ';
       $timeout.cancel(tmPromise);
-      $scope.addItem();
+      $scope.block = false;
+      addItem();
+      localStorageService.set(localStorageService.length(),$scope.tasks[localStorageService.length()]);
     };
-
-
-    $scope.addItem = function(){
-        $scope.tasks.push({
-          'title': $scope.itemtitle,
-          'description': $scope.itemcontent,
-          'starttime': $scope.timeStart,
-          'finishtime': $scope.timeEnd,
-          'timespend': $scope.timer,
-          'logo': 'logo'
-        });
-    };
-
-    $scope.tasks = [
-      {
-        'title': 'Angular UI Bootstrap',
-        'description': 'Bootstrap components written in pure AngularJS by the AngularUI Team.',
-        'starttime': '2014-12-14',
-        'finishtime': '2014-12-14',
-        'logo': 'ui-bootstrap.png',
-        'timespend': ''
-      }
-    ];
   }]);
