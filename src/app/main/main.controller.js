@@ -1,10 +1,27 @@
 'use strict';
 
+
 angular.module('toggl')
-  .controller('MainCtrl', ['$scope','$timeout', function ($scope, $timeout) {
+  .controller('MainCtrl', ['$scope','$timeout', 'localStorageService', function ($scope, $timeout, localStorageService) {
+
+
+    $scope.$watch('localStorageDemo', function(value){
+      localStorageService.add('localStorageDemo',value);
+      $scope.localStorageDemoValue = localStorageService.get('localStorageDemo');
+    });
+
+    $scope.storageType = 'Local storage';
+
+    if (localStorageService.getStorageType().indexOf('session') >=0) {
+      $scope.storageType = 'Session storage';
+    }
+    if (!localStorageService.isSupported){
+      $scope.storageType = 'Cookie';
+    }
+
     var tmPromise;
     $scope.timer = '00:00:00';
-
+    $scope.buttonStyle = 'btn-success';
     $scope.buttonText = 'Start';
 
     $scope.toggleTimer = function () {
@@ -12,8 +29,10 @@ angular.module('toggl')
         var today= new Date();
         $scope.timeStart = today.getTime();
         $scope.runClock();
+        $scope.buttonStyle = 'btn-danger';
       } else {
         $scope.stopClock();
+        $scope.buttonStyle = 'btn-success ';
       }
     };
 
@@ -60,14 +79,6 @@ angular.module('toggl')
     };
 
     $scope.tasks = [
-      {
-        'title': 'Angular UI Bootstrap',
-        'description': 'Bootstrap components written in pure AngularJS by the AngularUI Team.',
-        'starttime': '2014-12-14',
-        'finishtime': '2014-12-14',
-        'logo': 'ui-bootstrap.png',
-        'timespend': ''
-      },
       {
         'title': 'Angular UI Bootstrap',
         'description': 'Bootstrap components written in pure AngularJS by the AngularUI Team.',

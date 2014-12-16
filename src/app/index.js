@@ -3,12 +3,13 @@
 var toggl = angular.module('toggl', ['LocalStorageModule','ui.router']);
 
 
-toggl.config(function(localStorageServiceProvider) {
+toggl.config(['localStorageServiceProvider', function(localStorageServiceProvider) {
   localStorageServiceProvider
-    .setPrefix('toggl')
+    .setPrefix('togglPrefix')
+    //.setStorageCookie()
     .setStorageType('sessionStorage')
     .setNotify(true,true);
-});
+}]);
 
 toggl.config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/');
