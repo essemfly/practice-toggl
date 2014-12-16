@@ -31,7 +31,7 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-12 col-md-12" ng-repeat="task in tasks">
+    <div class="col-sm-12 col-md-12" ng-repeat="task in tasks track by $index">
       <div class="thumbnail">
         <img class="pull-right" ng-src="assets/images/{{task.logo}}" alt="{{task.title}}">
         <div class="caption">

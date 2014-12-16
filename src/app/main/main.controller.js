@@ -16,7 +16,7 @@ angular.module('toggl')
     };
 
     fillInTasks();
-    // cleanTasks();
+    cleanTasks();
 
 
     // Initialize things;
@@ -33,6 +33,7 @@ angular.module('toggl')
         runClock();
       } else {
         stopClock();
+        localStorageService.set(localStorageService.length(),$scope.tasks[localStorageService.length()]);
       }
     };
 
@@ -80,6 +81,7 @@ angular.module('toggl')
       $timeout.cancel(tmPromise);
       $scope.block = false;
       addItem();
-      localStorageService.set(localStorageService.length(),$scope.tasks[localStorageService.length()]);
+
     };
+
   }]);
