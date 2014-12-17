@@ -3,15 +3,30 @@
 
   <hr>
   <div class="jumbotron text-center">
+
+
     <h1>Seokmin's Toggl</h1>
     <hr>
     <p class="lead">
-      <img src="assets/images/effort.JPG" alt=""><br>
+      <img src="http://placekitten.com/g/200/300" alt=""><br>
     </p>
     <hr>
+
     <div class="panel row" id="contents">
       <div class="col-lg-3 input-group-lg">
-        <p> Title</p>
+        <p> Type</p>
+
+        <!--
+        <button type ="button" class ="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+          Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li> 놀기 </li>
+          <li> 먹기 </li>
+          <li> 자기 </li>
+        </ul>
+        -->
+
         <input type="text" name="title" class="form-control" ng-model="itemtitle" ng-disabled="block"/>
       </div>
       <div class="col-lg-6 input-group-lg">
@@ -20,9 +35,10 @@
       </div>
       <div class="col-lg-3 input-group-lg">
         <p> Time passed</p>
-        <p>  {{timer}} </p>
+        <p>  {{ elapsedTime | displayTime }} </p>
       </div>
     </div>
+    <hr>
     <div>
       <span class="input-group-btn">
           <button ng-click="toggleTimer()" class="btn btn-lg {{buttonStyle}}"  name="change_button"> {{buttonText}}</button>
@@ -31,18 +47,8 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-12 col-md-12" ng-repeat="task in tasks">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{task.logo}}" alt="{{task.title}}">
-        <div class="caption">
-          <p> 시작 날짜: {{task.finishtime | date:'yyyy-MM-dd'}}</p>
-          <h3> 제목: {{task.title}}</h3>
-          <h4> 설명: {{task.description}}</h4>
-          <p> 시작시간: {{task.starttime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
-          <p> 끝난시간: {{task.finishtime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
-          <p> 지속시간: {{task.timespend| date:'HH:mm:ss' }} 초 </p>
-        </div>
-      </div>
+    <div class="col-sm-12 col-md-12" ng-repeat="task in tasks track by $index">
+      <input-list></input-list>
     </div>
   </div>
 

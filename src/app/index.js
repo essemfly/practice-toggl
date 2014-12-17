@@ -1,6 +1,6 @@
 'use strict';
 
-var toggl = angular.module('toggl', ['LocalStorageModule','ui.router']);
+var toggl = angular.module('toggl', ['LocalStorageModule','ui.router','nvd3ChartDirectives']);
 
 
 toggl.config(['localStorageServiceProvider', function(localStorageServiceProvider) {
