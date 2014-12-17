@@ -6,9 +6,11 @@ angular.module('toggl')
     $scope.tasks = [];
     $scope.block = false;
     var fillInTasks = function(){
+      console.log("fillIntasks running");
       var lsLength = localStorageService.length();
       for (var j=0;j<lsLength;j++){
         $scope.tasks.push(localStorageService.get(j));
+        console.log("task"+j + "injecting");
       }
     };
     var cleanTasks = function(){
@@ -16,8 +18,7 @@ angular.module('toggl')
     };
 
     fillInTasks();
-    cleanTasks();
-
+    //cleanTasks();
 
     // Initialize things;
     var tmPromise;
