@@ -1,22 +1,41 @@
-
 <div class="container">
 
   <div ng-include="'components/navbar/navbar.html'"></div>
-    {{model.message}} HahHAHAHAH
-    <a ui-sref="home">Home</a>
-    <a ui-sref="stat">Statistics</a>
+  {{model.message}} HahHAHAHAH
+  <a ui-sref="home">Home</a>
+  <a ui-sref="stat">Statistics</a>
 
   <hr>
-</div>
+
 
 <div>
-    check nvd3
-  <nvd3-line-chart
-    data="exampleData"
-    showXAxis="true"
-    showYAxis="true"
-    tooltips="true"
-    interactive="true">
-  </nvd3-line-chart>
+  <div><b>check nvd3</b></div>
+  <div>
+    <nvd3-line-chart
+      data="exampleData"
+      showXAxis="true"
+      showYAxis="true"
+      tooltips="true"
+      interactive="true">
+    </nvd3-line-chart>
+    <hr>
 
+    <nvd3-pie-chart
+      data="exampleData2"
+      id="exampleId"
+      width="550"
+      height="550"
+      x="xFunction()"
+      y="yFunction()"
+      showLabels="true"
+      pieLabelsOutside="true"
+      showValues="true"
+      labelType="percent"
+      donut="true">
+      <svg></svg>
+    </nvd3-pie-chart>
+    <hr>
+
+  </div>
+</div>
 </div>

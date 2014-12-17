@@ -6,11 +6,9 @@ angular.module('toggl')
     $scope.tasks = [];
     $scope.block = false;
     var fillInTasks = function(){
-     // console.log("fillIntasks running");
       var lsLength = localStorageService.length();
       for (var j=0;j<lsLength;j++){
         $scope.tasks.push(localStorageService.get(j));
-      //  console.log("task"+j + "injecting");
       }
     };
     var cleanTasks = function(){
@@ -41,13 +39,14 @@ angular.module('toggl')
     // insert 0
 
     var addItem = function(){
-      $scope.tasks.push({
-        'title': $scope.itemtitle,
-        'description': $scope.itemcontent,
-        'starttime': $scope.timeStart,
-        'finishtime': $scope.timeEnd,
-        'timespend': $scope.elapsedTime,
-        'logo': 'logo'
+      $scope.tasks.push(
+        {
+        title: $scope.itemtitle,
+        description: $scope.itemcontent,
+        starttime: $scope.timeStart,
+        finishtime: $scope.timeEnd,
+        timespend: $scope.elapsedTime,
+        logo: 'logo'
       });
     };
 
