@@ -52,7 +52,7 @@ angular.module('toggl')
     };
 
     var runClock = function (){
-      var h, m, s, ms, today = new Date();
+      var today = new Date();
       $scope.buttonStyle = 'btn-danger';
       $scope.block = true;
       $scope.buttonText = 'ING';
