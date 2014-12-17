@@ -18,7 +18,7 @@ angular.module('toggl')
     };
 
     fillInTasks();
-    cleanTasks();
+    //cleanTasks();
 
     // Initialize things;
     var tmPromise;
@@ -83,10 +83,8 @@ angular.module('toggl')
       return i;
     }
     var ms = input;
-    console.log(ms);
     var h, m, s = new Date();
     h =  checkTime(Math.floor(ms / 3600));
-    console.log(h);
     ms = Math.floor(ms % 3600);
     m = checkTime(Math.floor(ms / 60));
     ms = Math.floor(ms % 60);
@@ -95,5 +93,11 @@ angular.module('toggl')
     return h + ':' + m + ':' + s;
 
   };
-});
+})
 
+.directive('inputList', function(){
+  return {
+    restrict: 'E',
+    templateUrl: 'app/main/tasklist.html'
+  };
+});
