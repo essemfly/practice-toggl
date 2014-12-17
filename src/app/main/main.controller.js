@@ -100,4 +100,8 @@ angular.module('toggl')
     restrict: 'E',
     templateUrl: 'app/main/tasklist.html'
   };
-});
+})
+
+.factory('d3Service',[function(){
+
+  }]);
