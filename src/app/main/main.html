@@ -20,7 +20,7 @@
       </div>
       <div class="col-lg-3 input-group-lg">
         <p> Time passed</p>
-        <p>  {{timer}} </p>
+        <p>  {{ elapsedTime | displayTime }} </p>
       </div>
     </div>
     <div>
@@ -40,7 +40,7 @@
           <h4> 설명: {{task.description}}</h4>
           <p> 시작시간: {{task.starttime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
           <p> 끝난시간: {{task.finishtime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
-          <p> 지속시간: {{task.timespend| date:'HH:mm:ss' }} 초 </p>
+          <p> 지속시간: {{task.timespend| displayTime }} 초 </p>
         </div>
       </div>
     </div>
