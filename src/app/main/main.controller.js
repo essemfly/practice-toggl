@@ -2,27 +2,32 @@
 
 angular.module('toggl')
   .controller('MainCtrl', ['$scope', '$timeout', 'localStorageService', function ($scope, $timeout, localStorageService) {
-    // Local Storage tasks Load
-    $scope.tasks = [];
-    $scope.block = false;
-    var fillInTasks = function () {
-      var lsLength = localStorageService.length();
-      for (var j = 0; j < lsLength; j++) {
-        $scope.tasks.push(localStorageService.get(j));
-      }
-    };
-    var cleanTasks = function () {
-      return localStorageService.clearAll();
-    };
-
-    fillInTasks();
-    //cleanTasks();
 
     // Initialize things;
     var tmPromise;
     $scope.elapsedTime = 0;
     $scope.buttonStyle = 'btn-success';
     $scope.buttonText = 'Start';
+    $scope.block = false;
+    $scope.tasks = [];
+
+    // Local Storage tasks Load & Reset fn
+    var fillInTasks = function fillInTasks() {
+      var lsLength = localStorageService.length();
+      for (var j = 0; j < lsLength; j++) {
+        $scope.tasks.push(localStorageService.get(j));
+      }
+    };
+    var cleanTasks = function cleanTasks() {
+      return localStorageService.clearAll();
+    };
+
+    // load tasks
+    fillInTasks();
+
+    // Use when reset localstorage
+    // cleanTasks();
+
 
     // Toggl Button
     $scope.toggleTimer = function () {
