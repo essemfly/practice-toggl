@@ -73,8 +73,12 @@ angular.module('toggl')
       $timeout.cancel(tmPromise);
       $scope.block = false;
 
-      if ($scope.elapsedTime > 10) imageload = 'tree.jpeg';
-      else  imageload = 'small_tree.jpeg';
+      if ($scope.elapsedTime > 10) {
+        imageload = 'tree.jpeg';
+      }
+      else {
+        imageload = 'small_tree.jpeg';
+      }
 
       var addItem = function addItem() {
         $scope.tasks.push(
