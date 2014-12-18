@@ -35,13 +35,15 @@
       </div>
       <div class="col-lg-3 input-group-lg">
         <p> Time passed</p>
-        <p>  {{ elapsedTime | displayTime }} </p>
+
+        <p> {{ elapsedTime | displayTime }} </p>
       </div>
     </div>
     <hr>
     <div>
       <span class="input-group-btn">
-          <button ng-click="toggleTimer()" class="btn btn-lg {{buttonStyle}}"  name="change_button"> {{buttonText}}</button>
+          <button ng-click="togglTimer()" class="btn btn-lg {{buttonStyle}}" name="change_button"> {{buttonText}}
+          </button>
       </span>
     </div>
   </div>

@@ -3,6 +3,7 @@
 
 angular.module('toggl')
   .controller('statCtrl', ['$scope', '$timeout', function ($scope) {
+
     $scope.model = {
       message: 'This is my app'
     };
@@ -45,26 +46,16 @@ angular.module('toggl')
         return d.key;
       };
     };
-    // console.log(localStorage.length);
-    for (var i = 1; i <  localStorage.length; i++){
-      console.log(JSON.parse(localStorage.getItem(localStorage.key(i))).timespend);
+
+    $scope.exampleData3 = [];
+    for (var i = 1; i < localStorage.length; i++) {
+      $scope.exampleData3.push({
+        key: JSON.parse(localStorage.getItem(localStorage.key(i))).title,
+        y: JSON.parse(localStorage.getItem(localStorage.key(i))).timespend
+      });
     }
 
-    $scope.exampleData3 = [ ];
-    for (var key in localStorage) {
-      //   console.log(key);
-    }
-    /*
-    for (var i = 0, len = localStorage.length; i < len; ++i) {
-      //    console.log(localStorage.getItem(localStorage.key(i)));
-      //    console.log(JSON.parse(localStorage.getItem(localStorage.key(1))).title);
-      $scope.exampleData3.push(JSON.parse(localStorage.getItem(localStorage.key(i))).title);
-      console.log($scope.exampleData3);
-    }
-*/
-
-    //  console.log(localStorage);
-
+    console.log($scope.exampleData3);
 
   }]);
 

@@ -28,6 +28,7 @@ function browserSyncInit(baseDir, files, browser) {
       routes: routes
     },
     browser: browser
+    //open:false
   });
 
 }
