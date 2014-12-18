@@ -45,12 +45,16 @@ angular.module('toggl')
         return d.key;
       };
     };
-    // console.log(localStorage.length);
-    for (var i = 1; i <  localStorage.length; i++){
-      console.log(JSON.parse(localStorage.getItem(localStorage.key(i))).timespend);
-    }
 
     $scope.exampleData3 = [ ];
+    // console.log(localStorage.length);
+    for (var i = 1; i <  localStorage.length; i++){
+      // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))).timespend);
+      $scope.exampleData3.push({key: JSON.parse(localStorage.getItem(localStorage.key(i))).title, y:JSON.parse(localStorage.getItem(localStorage.key(i))).timespend});
+    };
+
+    console.log($scope.exampleData3);
+
     for (var key in localStorage) {
       //   console.log(key);
     }
