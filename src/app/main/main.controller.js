@@ -3,7 +3,7 @@
 angular.module('toggl')
   .controller('MainCtrl', ['$scope', '$timeout', 'localStorageService', function ($scope, $timeout, localStorageService) {
 
-    // Initialize things;
+    // Initialize variables
     var tmPromise;
     $scope.elapsedTime = 0;
     $scope.buttonStyle = 'btn-success';
@@ -29,8 +29,11 @@ angular.module('toggl')
     // cleanTasks();
 
 
-    // Toggl Button
-    $scope.toggleTimer = function () {
+    /**
+     * Toggl Timer Button:
+     * Start and Stop the toggl timer
+     */
+    $scope.togglTimer = function togglTimer() {
       if ($scope.buttonText === 'Start') {
         var today = new Date();
         $scope.timeStart = today.getTime();
@@ -41,21 +44,11 @@ angular.module('toggl')
       }
     };
 
-    // insert 0
-
-    var addItem = function () {
-      $scope.tasks.push(
-        {
-          title: $scope.itemtitle,
-          description: $scope.itemcontent,
-          starttime: $scope.timeStart,
-          finishtime: $scope.timeEnd,
-          timespend: $scope.elapsedTime,
-          logo: 'logo'
-        });
-    };
-
-    var runClock = function () {
+    /**
+     *  runClock: Check time between timer started and finished.
+     *  Block the contents not to be modified and change the button text & color.
+     */
+    var runClock = function runClock() {
       var today = new Date();
       $scope.buttonStyle = 'btn-danger';
       $scope.block = true;
@@ -68,17 +61,35 @@ angular.module('toggl')
       }, 500);
     };
 
-    var stopClock = function () {
+    /**
+     *  stopClock: Stop the timer.
+     *  Unblock the contents and change the button text & color.
+     *  add item in tasks list
+     */
+    var stopClock = function stopClock() {
       $scope.buttonText = 'Start';
       $scope.buttonStyle = 'btn-success ';
       $timeout.cancel(tmPromise);
       $scope.block = false;
-      addItem();
 
+      var addItem = function addItem() {
+        $scope.tasks.push(
+          {
+            title: $scope.itemtitle,
+            description: $scope.itemcontent,
+            starttime: $scope.timeStart,
+            finishtime: $scope.timeEnd,
+            timespend: $scope.elapsedTime,
+            logo: 'logo'
+          });
+      };
+
+      addItem();
     };
 
   }])
 
+// filter that converts seconds to hh:mm:ss
   .filter('displayTime', function () {
     return function (input) {
       function checkTime(i) {
@@ -102,6 +113,8 @@ angular.module('toggl')
     };
   })
 
+
+  //filter that converts seconds to hh:mm:ss
   .directive('inputList', function () {
     return {
       restrict: 'E',
