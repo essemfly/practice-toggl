@@ -1,15 +1,15 @@
 'use strict';
 
-var toggl = angular.module('toggl', ['LocalStorageModule','ui.router','nvd3ChartDirectives']);
+var toggl = angular.module('toggl', ['LocalStorageModule', 'ui.router', 'nvd3ChartDirectives']);
 
 
-toggl.config(['localStorageServiceProvider', function(localStorageServiceProvider) {
+toggl.config(['localStorageServiceProvider', function (localStorageServiceProvider) {
   localStorageServiceProvider
     .setPrefix('toggl')
-    .setNotify(true,true);
+    .setNotify(true, true);
 }]);
 
-toggl.config(function($stateProvider, $urlRouterProvider){
+toggl.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
