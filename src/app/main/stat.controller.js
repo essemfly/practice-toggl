@@ -48,9 +48,7 @@ angular.module('toggl')
     };
 
     $scope.exampleData3 = [];
-    // console.log(localStorage.length);
     for (var i = 1; i < localStorage.length; i++) {
-      // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))).timespend);
       $scope.exampleData3.push({
         key: JSON.parse(localStorage.getItem(localStorage.key(i))).title,
         y: JSON.parse(localStorage.getItem(localStorage.key(i))).timespend

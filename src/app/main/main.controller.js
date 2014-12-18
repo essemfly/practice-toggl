@@ -67,10 +67,14 @@ angular.module('toggl')
      *  add item in tasks list
      */
     var stopClock = function stopClock() {
+      var imageload;
       $scope.buttonText = 'Start';
       $scope.buttonStyle = 'btn-success ';
       $timeout.cancel(tmPromise);
       $scope.block = false;
+
+      if ($scope.elapsedTime > 10) imageload = 'tree.jpeg';
+      else  imageload = 'small_tree.jpeg';
 
       var addItem = function addItem() {
         $scope.tasks.push(
@@ -80,7 +84,7 @@ angular.module('toggl')
             starttime: $scope.timeStart,
             finishtime: $scope.timeEnd,
             timespend: $scope.elapsedTime,
-            logo: 'logo'
+            logo: imageload
           });
       };
 
