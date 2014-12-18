@@ -10,17 +10,23 @@
   font-weight: normal;
   text-align: center;
   color: #f0f0f0;
-  background-color: #d43d3a;
+  background-color: black;
+//  background-color: #d43d3a;
 }
 
 .thumbnail {
-  height: 1000px;
+  height: 250px;
 
   img.pull-right {
-    width: 50px;
+    width: 100px;
+  }
+
+  #logo {
+    max-width: 100%;
   }
 }
 
 
 // injector
 // endinjector
+
