@@ -5,24 +5,33 @@
   padding: 0.2em 0;
 }
 
-#contents p {
-  font-size: 26px;
-  font-weight: normal;
-  text-align: center;
-  color: #f0f0f0;
-  background-color: black;
-//  background-color: #d43d3a;
+.winter {
+  background-image: url("/assets/images/christmastree.jpg");
+  opacity: 0.8;
 }
 
-.thumbnail {
-  height: 250px;
 
-  img.pull-right {
-    width: 100px;
+#contents {
+
+  p {
+    font-size: 26px;
+    font-weight: normal;
+    text-align: center;
+    color: #f0f0f0;
+    background-color: black;
+    //  background-color: #d43d3a;
   }
+}
+  .thumbnail {
+    height: 250px;
 
-  #logo {
-    max-width: 100%;
+    img.pull-right {
+      width: 100px;
+    }
+
+    #logo {
+      max-width: 100%;
+    }
   }
 }
 
