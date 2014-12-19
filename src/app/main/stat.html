@@ -1,16 +1,11 @@
 <div class="container">
 
   <div ng-include="'components/navbar/navbar.html'"></div>
-  {{model.message}} HahHAHAHAH
-  <a ui-sref="home">Home</a>
-  <a ui-sref="stat">Statistics</a>
-
-  <hr>
-
 
   <div>
-    <div><b>check nvd3</b></div>
     <div>
+
+      <!--
       <nvd3-line-chart
         data="exampleData"
         showXAxis="true"
@@ -19,22 +14,38 @@
         interactive="true">
       </nvd3-line-chart>
       <hr>
-
-      <nvd3-pie-chart
-        data="exampleData3"
-        id="exampleId"
-        width="550"
-        height="550"
-        x="xFunction()"
-        y="yFunction()"
-        showLabels="true"
-        pieLabelsOutside="false"
-        showValues="true" a
-        labelType="percent"
-        >
-        <svg></svg>
-      </nvd3-pie-chart>
+-->
+      <div>
+        <h2> Working Hours</h2>
+        <nvd3-bullet-chart
+          data="exampleData5"
+          id="exampleId5"
+          margin="{left:75,top:30,bottom:30,right:10}"
+          width="1000"
+          height="160">
+          <svg></svg>
+        </nvd3-bullet-chart>
+      </div>
       <hr>
+      <div>
+        <h2> Working Hours Distribution</h2>
+        <nvd3-pie-chart
+          data="exampleData3"
+          id="exampleId"
+          width="500"
+          height="500"
+          x="xFunction()"
+          y="yFunction()"
+          showLabels="true"
+          pieLabelsOutside="false"
+          showValues="percent"
+          labelType="percent"
+          >
+          <svg></svg>
+        </nvd3-pie-chart>
+      </div>
+
+
 
     </div>
   </div>

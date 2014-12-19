@@ -2,11 +2,8 @@
 
 
 angular.module('toggl')
-  .controller('statCtrl', ['$scope', '$timeout', function ($scope) {
+  .controller('StatCtrl', ['$scope', '$timeout', function ($scope) {
 
-    $scope.model = {
-      message: 'This is my app'
-    };
 
     $scope.exampleData = [
       {
@@ -30,6 +27,13 @@ angular.module('toggl')
       {key: 'Seven', y: 9}
     ];
 
+    $scope.exampleData5 = {
+      "title": "Working Hours",
+      "subtitle": "Try hard",
+      "ranges": [3, 6, 9, 12],
+      "measures": [9],
+      "markers": [8]
+    };
 
     $scope.xFunction = function () {
       return function (d) {
