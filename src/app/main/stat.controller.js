@@ -28,11 +28,11 @@ angular.module('toggl')
     ];
 
     $scope.exampleData5 = {
-      "title": "Working Hours",
-      "subtitle": "Try hard",
-      "ranges": [3, 6, 9, 12],
-      "measures": [9],
-      "markers": [8]
+      'title': 'Working Hours',
+      'subtitle': 'Try hard',
+      'ranges': [3, 6, 9, 12],
+      'measures': [9],
+      'markers': [8]
     };
 
     $scope.xFunction = function () {

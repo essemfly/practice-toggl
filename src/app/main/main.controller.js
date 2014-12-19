@@ -11,6 +11,8 @@ angular.module('toggl')
     $scope.block = false;
     $scope.tasks = [];
 
+
+
     // Local Storage tasks Load & Reset fn
     var fillInTasks = function fillInTasks() {
       var lsLength = localStorageService.length();
