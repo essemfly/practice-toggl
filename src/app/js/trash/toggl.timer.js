@@ -9,7 +9,7 @@
     .module('toggl')
     .controller('TimerCtrl', TimerCtrl);
 
-  TimerCtrl.$inject = ['$scope', '$timeout', 'localStorageService'];
+  TimerCtrl.$inject = ['$scope', '$timeout', 'localStorageService', inputList];
 
   function TimerCtrl($scope, $timeout, localStorageService) {
     // Initialize variables

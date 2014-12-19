@@ -1,5 +1,4 @@
-(function(angular) {
-  'use strict';
+'use strict';
   var toggl = angular.module('toggl', ['LocalStorageModule', 'ui.router', 'nvd3ChartDirectives']);
 
 
@@ -24,5 +23,5 @@
         controller: 'StatCtrl'
       });
   });
-})(window.angular);
+
 
