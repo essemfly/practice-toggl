@@ -2,7 +2,7 @@
 
 
 angular.module('toggl')
-  .controller('statCtrl', ['$scope', '$timeout', function ($scope) {
+  .controller('StatCtrl', ['$scope', '$timeout', function ($scope) {
 
 
     $scope.exampleData = [

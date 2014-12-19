@@ -21,7 +21,7 @@
       .state('stat', {
         url: '/stat',
         templateUrl: 'app/main/stat.html',
-        controller: 'statCtrl'
+        controller: 'StatCtrl'
       });
   });
 })(window.angular);
