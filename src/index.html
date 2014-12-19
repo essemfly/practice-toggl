@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html class="no-js" ng-app="toggl">
 <head>
@@ -68,13 +67,22 @@
 <!-- endbuild -->
 
 
-    <!-- build:js({.tmp,src}) scripts/app.js -->
-    <!-- inject:js -->
-    <script src="app/index.js"></script>
-    <script src="app/main/main.controller.js"></script>
-    <script src="app/main/stat.controller.js"></script>
-    <script src="components/navbar/navbar.controller.js"></script>
-    <!-- endinject -->
+<!-- build:js({.tmp,src}) scripts/app.js -->
+
+<script src="app/js/toggl.module.js"></script>
+<script src="app/js/ui-route-config.js"></script>
+<script src="app/js/localstorage-config.js"></script>
+<script src="app/js/toggl.timer.js"></script>
+<script src="app/js/toggl.stat.js"></script>
+<script src="app/js/inputList.js"></script>
+<script src="app/js/seconds-time-filter.js"></script>
+
+<!-- inject:js
+<script src="app/index.js"></script>
+<script src="app/main/main.controller.js"></script>
+<script src="app/main/stat.controller.js"></script>
+<script src="components/navbar/navbar.controller.js"></script>
+<!-- endinject -->
 
 
 <!-- inject:partials -->
